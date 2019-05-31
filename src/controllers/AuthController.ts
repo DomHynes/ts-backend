@@ -1,25 +1,14 @@
-import { IsString } from 'class-validator';
 import {
   BadRequestError,
   Body,
   JsonController,
   Post,
 } from 'routing-controllers';
-import { getConnectionManager, Repository, getRepository } from 'typeorm';
-import { User } from '../models/User';
 import { ResponseSchema } from 'routing-controllers-openapi';
+import { Repository } from 'typeorm';
 import { InjectRepository } from 'typeorm-typedi-extensions';
-
-class LoginRequest {
-  @IsString()
-  username!: string;
-  @IsString()
-  password!: string;
-}
-
-class SuccessfulLoginResponse {
-  token!: string;
-}
+import { User } from '../models/User';
+import { LoginRequest, SuccessfulLoginResponse } from './responses';
 
 @JsonController('/auth')
 export class AuthController {
@@ -29,7 +18,7 @@ export class AuthController {
   }
 
   @Post('/login')
-  // @ResponseSchema(SuccessfulLoginResponse)
+  @ResponseSchema(SuccessfulLoginResponse)
   async login(@Body() loginReq: LoginRequest) {
     const user = await this.userRepository.findOneOrFail({
       username: loginReq.username,

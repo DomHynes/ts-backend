@@ -12,7 +12,7 @@ export class UserResponse {
   createdAt!: Date;
 
   @IsDate()
-  updatedAt?: Date;
+  updatedAt!: Date;
 }
 
 export class RegistrationRequest extends User {
@@ -22,4 +22,16 @@ export class RegistrationRequest extends User {
 
   @Length(4, 100)
   public password!: string;
+}
+
+export class LoginRequest {
+  @IsString()
+  username!: string;
+  @IsString()
+  password!: string;
+}
+
+export class SuccessfulLoginResponse {
+  @IsString()
+  token!: string;
 }
