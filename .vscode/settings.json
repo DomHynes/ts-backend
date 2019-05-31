@@ -1,0 +1,17 @@
+{
+    "workbench.colorCustomizations": {
+        "activityBar.background": "#3D1C62",
+        "titleBar.activeBackground": "#562789",
+        "titleBar.activeForeground": "#FBF9FD"
+    },
+    "editor.formatOnSave": true,
+    "eslint.autoFixOnSave": true,
+    "sqltools.connections": [
+        {
+            "database": "./data/line.sqlite",
+            "dialect": "SQLite",
+            "name": "sqlite"
+        }
+    ],
+    "typescript.tsdk": "node_modules/typescript/lib"
+}

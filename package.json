@@ -1,0 +1,46 @@
+{
+  "name": "ts-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "tsnd --respawn src/server",
+    "tinker": "ts-node src/console"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.2",
+    "@types/body-parser": "^1.17.0",
+    "@types/express": "^4.16.1",
+    "@types/jsonwebtoken": "^8.3.2",
+    "@types/node": "^12.0.3",
+    "@typescript-eslint/eslint-plugin": "^1.9.0",
+    "@typescript-eslint/parser": "^1.9.0",
+    "async-repl": "^0.4.0",
+    "eslint": "^5.16.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "prettier": "^1.17.1",
+    "ts-node": "^8.2.0",
+    "ts-node-dev": "^1.0.0-pre.39",
+    "typescript": "^3.5.1"
+  },
+  "dependencies": {
+    "@types/swagger-ui-express": "^3.0.0",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "class-validator-jsonschema": "^1.2.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "passport": "^0.4.0",
+    "reflect-metadata": "^0.1.13",
+    "routing-controllers": "^0.7.7",
+    "routing-controllers-openapi": "^1.7.0",
+    "sqlite3": "^4.0.8",
+    "swagger-ui-express": "^4.0.5",
+    "typedi": "^0.8.0",
+    "typeorm": "^0.2.17"
+  },
+  "resolutions": {
+    "class-validator": "0.8.5"
+  }
+}
