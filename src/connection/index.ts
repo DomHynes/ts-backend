@@ -1,4 +1,4 @@
 import { createConnection } from 'typeorm';
 import config from './ormconfig';
 
-export const connection = createConnection(config);
+export const connection = () => createConnection(config);

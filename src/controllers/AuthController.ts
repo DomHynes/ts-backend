@@ -5,9 +5,10 @@ import {
   JsonController,
   Post,
 } from 'routing-controllers';
-import { getConnectionManager, Repository } from 'typeorm';
+import { getConnectionManager, Repository, getRepository } from 'typeorm';
 import { User } from '../models/User';
 import { ResponseSchema } from 'routing-controllers-openapi';
+import { InjectRepository } from 'typeorm-typedi-extensions';
 
 class LoginRequest {
   @IsString()
@@ -23,10 +24,8 @@ class SuccessfulLoginResponse {
 @JsonController('/auth')
 export class AuthController {
   private userRepository: Repository<User>;
-  constructor() {
-    this.userRepository = getConnectionManager()
-      .get()
-      .getRepository(User);
+  constructor(@InjectRepository(User) repository: Repository<User>) {
+    this.userRepository = repository;
   }
 
   @Post('/login')

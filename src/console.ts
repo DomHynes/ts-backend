@@ -6,7 +6,7 @@ import { getConnectionManager } from 'typeorm';
 import * as pjson from '../package.json';
 import { connection } from './connection';
 
-connection.then(db => {
+connection().then(db => {
   const replServer = repl.start({
     prompt: `${pjson.name}> `,
   });

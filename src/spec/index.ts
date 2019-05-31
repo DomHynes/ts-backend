@@ -29,9 +29,5 @@ export const spec = routingControllersToSpec(storage, serverOptions, {
       url: 'http://localhost:2667',
       description: 'local',
     },
-    {
-      url: 'http://d93267a8.ngrok.io/',
-      description: 'ngrok',
-    },
   ],
 });
