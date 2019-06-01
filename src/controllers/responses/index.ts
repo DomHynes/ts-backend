@@ -1,4 +1,10 @@
-import { IsDate, IsNotEmpty, IsString, Length } from 'class-validator';
+import {
+  IsBoolean,
+  IsDate,
+  IsNotEmpty,
+  IsString,
+  Length,
+} from 'class-validator';
 import { User } from '../../models/User';
 
 export class UserResponse {
@@ -37,4 +43,9 @@ export class LoginRequest {
 export class SuccessfulLoginResponse {
   @IsString()
   public token!: string;
+}
+
+export class HealthResponse {
+  @IsBoolean()
+  public database!: boolean;
 }

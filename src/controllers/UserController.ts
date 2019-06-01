@@ -10,9 +10,9 @@ import {
 import { ResponseSchema } from 'routing-controllers-openapi';
 import { Repository } from 'typeorm';
 import { InjectRepository } from 'typeorm-typedi-extensions';
+import { LoggingMiddleware } from '../middlewares/Logging';
 import { User } from '../models/User';
 import { RegistrationRequest, UserResponse } from './responses';
-import { LoggingMiddleware } from '../middlewares/Logging';
 
 @JsonController('/users')
 @UseBefore(LoggingMiddleware('UsersController'))
@@ -22,13 +22,14 @@ export class UserController {
     this.repository = repository;
   }
 
-  @Get('/')
   @ResponseSchema(UserResponse, {
     description: 'A list of available users',
     isArray: true,
   })
+  @Get('/')
+  @HttpCode(200)
   public async getAll(): Promise<User[]> {
-    return await this.repository.find();
+    return this.repository.find();
   }
 
   @Get('/:id')
