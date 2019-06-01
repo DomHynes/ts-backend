@@ -13,13 +13,17 @@ import { InjectRepository } from 'typeorm-typedi-extensions';
 import { LoggingMiddleware } from '../middlewares/Logging';
 import { User } from '../models/User';
 import { RegistrationRequest, UserResponse } from './responses';
+import { getLogger, Logger } from 'log4js';
 
 @JsonController('/users')
 @UseBefore(LoggingMiddleware('UsersController'))
 export class UserController {
   private repository: Repository<User>;
+  private logger: Logger;
+
   public constructor(@InjectRepository(User) repository: Repository<User>) {
     this.repository = repository;
+    this.logger = getLogger('UserController');
   }
 
   @ResponseSchema(UserResponse, {
@@ -46,6 +50,10 @@ export class UserController {
     user.hashPassword();
     await this.repository.insert({ ...user, role: 'user' });
 
-    return this.repository.findOneOrFail({ username: user.username });
+    const newUser = await this.repository.findOneOrFail({
+      username: user.username,
+    });
+    this.logger.info(`created ${newUser.username} - ${newUser.id}`);
+    return newUser;
   }
 }
