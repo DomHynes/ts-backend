@@ -3,15 +3,14 @@ import { User } from '../../models/User';
 import { UserController } from '../UserController';
 
 const mockRepository = ({
-  find: () => Promise.resolve([User]),
+  find: (): Promise<User[]> => Promise.resolve([]),
 } as unknown) as typeorm.Repository<User>;
 
-describe('User Controller', () => {
+describe('User Controller', (): void => {
   const userController = new UserController(mockRepository);
 
-  it('should return an array of users', async () => {
+  it('should return an array of users', async (): Promise<void> => {
     const response = await userController.getAll();
-    expect(response).toContainKey('users');
-    expect(response.users).toBeArray();
+    expect(response).toBeArray();
   });
 });

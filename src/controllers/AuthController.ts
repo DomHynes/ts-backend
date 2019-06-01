@@ -13,13 +13,15 @@ import { LoginRequest, SuccessfulLoginResponse } from './responses';
 @JsonController('/auth')
 export class AuthController {
   private userRepository: Repository<User>;
-  constructor(@InjectRepository(User) repository: Repository<User>) {
+  public constructor(@InjectRepository(User) repository: Repository<User>) {
     this.userRepository = repository;
   }
 
   @Post('/login')
   @ResponseSchema(SuccessfulLoginResponse)
-  async login(@Body() loginReq: LoginRequest) {
+  public async login(
+    @Body() loginReq: LoginRequest,
+  ): Promise<{ token: string }> {
     const user = await this.userRepository.findOneOrFail({
       username: loginReq.username,
     });
