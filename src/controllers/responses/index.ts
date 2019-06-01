@@ -1,18 +1,21 @@
-import { IsString, IsDate, Length, IsNotEmpty } from 'class-validator';
+import { IsDate, IsNotEmpty, IsString, Length } from 'class-validator';
 import { User } from '../../models/User';
 
 export class UserResponse {
   @IsString()
-  username!: string;
+  public id!: string;
 
   @IsString()
-  role!: string;
+  public username!: string;
+
+  @IsString()
+  public role!: string;
 
   @IsDate()
-  createdAt!: Date;
+  public createdAt!: Date;
 
   @IsDate()
-  updatedAt!: Date;
+  public updatedAt!: Date;
 }
 
 export class RegistrationRequest extends User {
@@ -26,12 +29,12 @@ export class RegistrationRequest extends User {
 
 export class LoginRequest {
   @IsString()
-  username!: string;
+  public username!: string;
   @IsString()
-  password!: string;
+  public password!: string;
 }
 
 export class SuccessfulLoginResponse {
   @IsString()
-  token!: string;
+  public token!: string;
 }

@@ -1,6 +1,6 @@
 import * as typeorm from 'typeorm';
-import { UserController } from '../UserController';
 import { User } from '../../models/User';
+import { UserController } from '../UserController';
 
 const mockRepository = ({
   find: () => Promise.resolve([User]),
