@@ -4,7 +4,9 @@ import { User } from '../../models/User';
 
 const mockUserModel = {
   createJWT: jest.fn((): string => 'test token'),
-  checkIfUnencryptedPasswordIsValid: jest.fn(password => password === password),
+  checkIfUnencryptedPasswordIsValid: jest.fn(
+    (password): boolean => password === password,
+  ),
 };
 
 const mockRepository = ({
