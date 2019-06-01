@@ -32,6 +32,7 @@
     "typescript": "^3.5.1"
   },
   "dependencies": {
+    "@log4js-node/slack": "^1.0.0",
     "@types/swagger-ui-express": "^3.0.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
