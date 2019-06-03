@@ -60,5 +60,9 @@
     "experimentalDecorators": true /* Enables experimental support for ES7 decorators. */,
     "emitDecoratorMetadata": true /* Enables experimental support for emitting type metadata for decorators. */
   },
-  "include": ["node_modules/jest-extended/types/**/*.d.ts", "src/**/*.ts"]
+  "include": [
+    "node_modules/jest-extended/types/**/*.d.ts",
+    "**/*.ts",
+    "ormconfig.ts"
+  ]
 }

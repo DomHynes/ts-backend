@@ -6,7 +6,7 @@ import { connection } from './connection';
 import { AuthController } from './controllers/AuthController';
 import { HealthController } from './controllers/HealthController';
 import { UserController } from './controllers/UserController';
-import './logging';
+import './utils/logging';
 import { RequestIdMiddleware } from './middlewares/RequestId';
 
 useContainer(Container);
