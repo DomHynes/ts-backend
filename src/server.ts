@@ -1,3 +1,4 @@
+import './utils/honeycomb';
 import { Express } from 'express';
 import 'reflect-metadata';
 import { createExpressServer } from 'routing-controllers';
