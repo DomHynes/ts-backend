@@ -57,7 +57,7 @@
     "sqlite3": "^4.0.8",
     "swagger-ui-express": "^4.0.5",
     "typedi": "^0.8.0",
-    "typeorm": "^0.2.17",
+    "typeorm": "^0.2.25",
     "typeorm-typedi-extensions": "^0.2.3"
   },
   "resolutions": {
